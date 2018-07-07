@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4831649193818248}
   - component: {fileID: 114388543063962206}
+  - component: {fileID: 114589714683901916}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -54,5 +55,19 @@ MonoBehaviour:
   ActionsForTags:
   - Tag: Walkable
     Action: {fileID: 0}
-  - Tag: 
-    Action: {fileID: 0}
+    OnMouseDown: 0
+  - Tag: Item
+    Action: {fileID: 114589714683901916}
+    OnMouseDown: 1
+--- !u!114 &114589714683901916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1955219113480098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfe448f1a681a34892702bd05167584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemInfoPanelObj: {fileID: 0}
