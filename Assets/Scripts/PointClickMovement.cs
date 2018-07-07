@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PointClickMovement : MonoBehaviour {
+public class PointClickMovement : PointClickAction {
     public string WalkableTag = "Walkable";
     public float MoveSpeed = 0.5f;
     private float _moveThreshold = 0.1f;
@@ -20,7 +20,6 @@ public class PointClickMovement : MonoBehaviour {
 
     private void Update()
     {
-        CheckInput();
         MoveTowardsTarget();
     }
 
@@ -38,19 +37,11 @@ public class PointClickMovement : MonoBehaviour {
             _rb.MovePosition(Vector3.MoveTowards(transform.position, _moveTarget, MoveSpeed/10.0f));
         }
     }
-
-    private void CheckInput()
+    public override void OnClicked(RaycastHit worldPos)
     {
-        if (Input.GetMouseButton(0))
-        {
-            Ray mouseWorld = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit mouseHit;
-            if (Physics.Raycast(mouseWorld, out mouseHit) && mouseHit.collider.tag == WalkableTag)
-            {
-                _moveTarget = mouseHit.point;
-            }
-        }
+        _moveTarget = worldPos.point;
     }
+    
 
     private void OnDrawGizmos()
     {
