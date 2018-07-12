@@ -17,6 +17,17 @@ public class PlayerData : MonoBehaviour{
     }
     public void ShowInventory()
     {
-        if (InventoryPanelObj != null) InventoryPanelObj.ShowInventory(Inventory);
+        if (InventoryPanelObj != null)
+        {
+            if (InventoryPanelObj.isActiveAndEnabled)
+            {
+                InventoryPanelObj.gameObject.SetActive(false);
+            }
+            else
+            {
+                InventoryPanelObj.gameObject.SetActive(true);
+                InventoryPanelObj.ShowInventory(Inventory);
+            }
+        }
     }
 }

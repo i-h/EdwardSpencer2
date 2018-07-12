@@ -16,8 +16,8 @@ public class CameraZoneEditor : Editor {
         {
             tgt.PreviewCamera.targetTexture = Resources.Load<RenderTexture>("Textures/CameraPreview");
             tgt.PreviewCamera.Render();
+            GUILayout.Box(tgt.PreviewCamera.targetTexture);
         }
 
-        GUILayout.Box(_rt);
     }
 }
